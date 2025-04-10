@@ -1,0 +1,34 @@
+metadata:
+    name: cfi
+    format: "Lava-Test Test Definition 1.0"
+    description: "Run basic CFI tests.
+                  Tests that a non-cfi rootfs boots fine, that a cfi compiled
+                  binary runs fine and that a non-cfi compiled binary which
+                  prctl does not work (segfault)"
+    maintainer:
+        - alexghiti@rivosinc.com
+    os:
+        - debian
+        - ubuntu
+        - centos
+        - fedora
+    scope:
+        - functional
+    devices:
+        - rtsm_ve-armv8
+        - arndale
+        - mustang
+        - overdrive
+        - d05
+        - d03
+        - hi6220-hikey
+        - apq8016-sbc
+
+params:
+    SKIP_INSTALL: "False"
+
+run:
+    steps:
+        - cd ./automated/linux/cfi/
+        - ./cfi.sh
+        - ../../utils/send-to-lava.sh ./output/result.txt
