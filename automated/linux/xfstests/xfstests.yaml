@@ -29,7 +29,7 @@ params:
     FILESYSTEM: "ext4"
     T_SIZE: "5G"
     S_SIZE: "8G"
-    SKIP_INSTALL: "true"
+    SKIP_INSTALL: "false"
 
 run:
     steps:
